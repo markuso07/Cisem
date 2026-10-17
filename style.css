@@ -1,0 +1,1883 @@
+/* =========================================
+   CISEM - DISEÑO GENERAL
+========================================= */
+
+:root {
+    --naranja: #f36b0b;
+    --naranja-oscuro: #d95700;
+    --negro: #151515;
+    --gris: #626262;
+    --gris-claro: #dedede;
+    --blanco: #ffffff;
+    --borde: #e9e9e9;
+    --sombra: 0 8px 28px rgba(0, 0, 0, 0.07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--negro);
+    background: var(--gris-claro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.contenedor {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 90px 0;
+}
+
+.etiqueta {
+    color: var(--naranja);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+h2 span {
+    color: var(--naranja);
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 24px;
+    border-radius: 9px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    border: 2px solid transparent;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.boton:hover {
+    transform: translateY(-3px);
+}
+
+.boton-naranja {
+    background: var(--naranja);
+    color: var(--blanco);
+    box-shadow: 0 6px 18px rgba(243, 107, 11, 0.18);
+}
+
+.boton-naranja:hover {
+    background: var(--naranja-oscuro);
+    box-shadow: 0 9px 24px rgba(243, 107, 11, 0.28);
+}
+
+.boton-blanco {
+    background: var(--blanco);
+    color: var(--negro);
+    border-color: var(--naranja);
+}
+
+.boton-blanco:hover {
+    color: var(--naranja);
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #eeeeee;
+    backdrop-filter: blur(12px);
+}
+
+.navegacion {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #050505;
+    flex-shrink: 0;
+}
+
+.logo span {
+    position: relative;
+    padding-bottom: 7px;
+}
+
+.logo span::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--naranja);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu a {
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 0;
+    height: 3px;
+    background: var(--naranja);
+    transition: width 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--naranja);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.boton-nav {
+    padding: 13px 18px;
+    white-space: nowrap;
+    font-size: 0.82rem;
+}
+
+
+/* =========================================
+   PORTADA
+========================================= */
+
+.portada {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 5% 40%,
+            #fff6ef 0%,
+            #dedede 55%
+        );
+}
+
+.contenido-portada {
+    min-height: 530px;
+    display: grid;
+    grid-template-columns: 1fr 0.95fr;
+    align-items: center;
+    gap: 35px;
+}
+
+.texto-portada {
+    padding: 65px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.texto-portada h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3.2rem, 5.5vw, 5.4rem);
+    font-weight: 700;
+    line-height: 0.99;
+    letter-spacing: -1.5px;
+    margin-bottom: 22px;
+}
+
+.texto-portada h1 span {
+    display: block;
+    color: var(--naranja);
+}
+
+.descripcion-portada {
+    color: #414141;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    max-width: 530px;
+    margin-bottom: 28px;
+}
+
+.destacados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin: 30px 0;
+}
+
+.destacado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.destacado .icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--naranja);
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.destacado p {
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.acciones-portada {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.imagen-portada {
+    height: 530px;
+    position: relative;
+    margin-right: calc((90vw - 100%) / -2);
+    overflow: hidden;
+}
+
+.imagen-portada::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: -90px;
+    top: -30px;
+    width: 140px;
+    height: 120%;
+    background: rgba(243, 107, 11, 0.86);
+    transform: skewX(-28deg);
+}
+
+.imagen-portada img,
+.imagen-portada video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imagen-portada video {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* =========================================
+   SERVICIOS
+========================================= */
+
+.servicios {
+    padding-top: 65px;
+    padding-bottom: 85px;
+}
+
+.encabezado-seccion {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 45px;
+    margin-bottom: 30px;
+}
+
+.encabezado-seccion h2 {
+    max-width: 560px;
+}
+
+.encabezado-seccion > p {
+    color: var(--gris);
+    font-size: 0.9rem;
+    max-width: 390px;
+    margin-bottom: 5px;
+}
+
+.rejilla-servicios {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.tarjeta-servicio {
+    background: var(--blanco);
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra);
+}
+
+.tarjeta-servicio > img {
+    height: 150px;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-servicio:hover > img {
+    transform: scale(1.04);
+}
+
+.contenido-tarjeta {
+    padding: 20px 16px;
+}
+
+.icono-servicio {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: #fff1e6;
+    color: var(--naranja);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.contenido-tarjeta h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.contenido-tarjeta p {
+    color: var(--gris);
+    font-size: 0.79rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SOBRE CISEM
+========================================= */
+
+.nosotros {
+    background: #d2d2d2;
+}
+
+.contenido-nosotros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.imagen-nosotros {
+    height: 410px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.imagen-nosotros img {
+    height: 100%;
+    object-position: center;
+}
+
+.texto-nosotros h2 {
+    margin-bottom: 22px;
+}
+
+.texto-nosotros > p:not(.etiqueta) {
+    color: var(--gris);
+    font-size: 0.94rem;
+    margin-bottom: 17px;
+}
+
+.texto-nosotros .boton {
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   CONTACTO
+========================================= */
+
+.contacto {
+    background: var(--naranja);
+    color: var(--blanco);
+}
+
+.contenido-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.contacto .etiqueta {
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.contacto h2 {
+    max-width: 650px;
+    margin-bottom: 18px;
+}
+
+.contacto h2 span {
+    color: #252525;
+}
+
+.contacto .contenido-contacto > div > p:last-child {
+    max-width: 600px;
+    font-size: 0.95rem;
+}
+
+.contacto .boton-blanco {
+    border-color: var(--blanco);
+    flex-shrink: 0;
+}
+
+.contacto .boton-blanco:hover {
+    background: #fff2e8;
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+.pie-pagina {
+    background: #171717;
+    color: var(--blanco);
+    padding-top: 45px;
+}
+
+.contenido-pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-bottom: 35px;
+}
+
+.logo-pie {
+    color: var(--blanco);
+}
+
+.contenido-pie > p {
+    max-width: 390px;
+    color: #cccccc;
+    font-size: 0.85rem;
+}
+
+.contenido-pie > a:last-child {
+    font-size: 0.85rem;
+    color: var(--naranja);
+    font-weight: 700;
+}
+
+.copyright {
+    border-top: 1px solid #333333;
+    padding: 20px 5%;
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 0.78rem;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .navegacion {
+        gap: 18px;
+    }
+
+    .menu {
+        gap: 17px;
+    }
+
+    .menu a {
+        font-size: 0.78rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .boton-nav {
+        padding: 12px;
+        font-size: 0.75rem;
+    }
+
+    .contenido-portada {
+        grid-template-columns: 1fr 0.85fr;
+        gap: 20px;
+    }
+
+    .texto-portada h1 {
+        font-size: clamp(3rem, 5vw, 4.3rem);
+    }
+
+    .destacados {
+        gap: 14px;
+    }
+
+    .rejilla-servicios {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .tarjeta-servicio > img {
+        height: 180px;
+    }
+}
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 760px) {
+
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    .contenedor {
+        width: 90%;
+    }
+
+    .seccion {
+        padding: 65px 0;
+    }
+
+    .navegacion {
+        min-height: 72px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 12px 0;
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 8px 0 5px;
+    }
+
+    .menu a {
+        white-space: nowrap;
+        font-size: 0.76rem;
+    }
+
+    .menu a::after {
+        bottom: -4px;
+    }
+
+    .boton-nav {
+        padding: 11px 12px;
+        font-size: 0.7rem;
+    }
+
+    .contenido-portada {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .texto-portada {
+        padding: 55px 0 35px;
+    }
+
+    .texto-portada h1 {
+        font-size: clamp(3.2rem, 12vw, 4.7rem);
+    }
+
+    .descripcion-portada {
+        font-size: 1rem;
+    }
+
+    .destacados {
+        gap: 18px;
+    }
+
+    .destacado p {
+        font-size: 0.72rem;
+    }
+
+    .acciones-portada {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acciones-portada .boton {
+        width: 100%;
+    }
+
+    .imagen-portada {
+        height: 310px;
+        margin: 0 -5.56vw;
+    }
+
+    .imagen-portada::before {
+        left: -110px;
+        width: 100px;
+    }
+
+    .encabezado-seccion {
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    .encabezado-seccion h2 {
+        font-size: 2.1rem;
+    }
+
+    .encabezado-seccion > p {
+        margin-top: 18px;
+    }
+
+    .rejilla-servicios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .tarjeta-servicio > img {
+        height: 145px;
+    }
+
+    .contenido-tarjeta {
+        padding: 15px 12px;
+    }
+
+    .contenido-tarjeta h3 {
+        font-size: 0.9rem;
+    }
+
+    .contenido-tarjeta p {
+        font-size: 0.75rem;
+    }
+
+    .icono-servicio {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+    }
+
+    .contenido-nosotros {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .imagen-nosotros {
+        height: 300px;
+    }
+
+    .texto-nosotros h2 {
+        font-size: 2.1rem;
+    }
+
+    .contenido-contacto {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .contacto h2 {
+        font-size: 2.1rem;
+    }
+
+    .contenido-pie {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .texto-portada h1 {
+        font-size: 2.8rem;
+    }
+
+    .destacados {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .rejilla-servicios {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-servicio > img {
+        height: 200px;
+    }
+
+    .boton-nav {
+        font-size: 0.65rem;
+        padding: 10px;
+    }
+
+}
+/* =========================================
+   CONTACTO Y PRESUPUESTOS CISEM
+========================================= */
+
+.encabezado-contacto {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.encabezado-contacto h2 {
+    margin-bottom: 20px;
+}
+
+.encabezado-contacto > p:last-child {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.rejilla-contacto {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.informacion-contacto {
+    padding: 25px 0;
+}
+
+.informacion-contacto h3,
+.formulario-presupuesto h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.informacion-contacto > p {
+    color: #ffffff;
+    opacity: 0.92;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.dato-contacto {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.icono-contacto {
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: var(--naranja);
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.dato-contacto h4 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.dato-contacto p {
+    font-size: 0.83rem;
+    opacity: 0.92;
+}
+
+.aviso-contacto {
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+}
+
+.aviso-contacto strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.aviso-contacto p {
+    font-size: 0.85rem;
+}
+
+.formulario-presupuesto {
+    padding: 32px;
+    background: #ffffff;
+    color: #151515;
+    border-radius: 14px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+}
+
+.formulario-presupuesto h3 {
+    font-size: 1.6rem;
+}
+
+.subtitulo-formulario {
+    color: #666666;
+    font-size: 0.88rem;
+    margin-bottom: 25px;
+}
+
+.grupo-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.campo label {
+    font-size: 0.83rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #151515;
+    font: inherit;
+    font-size: 0.86rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 3px rgba(243, 107, 11, 0.12);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.boton-enviar {
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nota-formulario {
+    margin-top: 15px;
+    text-align: center;
+    color: #777777;
+    font-size: 0.75rem;
+    line-height: 1.6;
+}
+
+
+/* ADAPTACIÓN PARA CELULARES */
+
+@media (max-width: 760px) {
+
+    .encabezado-contacto {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .encabezado-contacto h2 {
+        font-size: 2.1rem;
+    }
+
+    .rejilla-contacto {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .informacion-contacto {
+        padding: 0;
+    }
+
+    .formulario-presupuesto {
+        padding: 23px 18px;
+    }
+
+    .formulario-presupuesto h3 {
+        font-size: 1.35rem;
+    }
+
+    .grupo-campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
+/* =========================================
+   BOTÓN FLOTANTE DE WHATSAPP
+========================================= */
+
+.whatsapp-flotante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 18px;
+    background: #25D366;
+    color: #ffffff;
+
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-flotante:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+@media (max-width: 600px) {
+
+    .whatsapp-flotante {
+        right: 15px;
+        bottom: 15px;
+        padding: 10px;
+    }
+
+    .whatsapp-texto {
+        display: none;
+    }
+
+}
+
+
+
+/* =========================================
+   MEJORAS PARA CELULARES - CISEM
+   Ajustes añadidos sin quitar el diseño original
+========================================= */
+
+@media (max-width: 760px) {
+    html {
+        scroll-padding-top: 115px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .contenedor {
+        width: 92%;
+    }
+
+    .seccion {
+        padding: 52px 0;
+    }
+
+    /* Encabezado y navegación más cómodos al tacto */
+    .encabezado {
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .navegacion {
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 1.9rem;
+    }
+
+    .boton-nav {
+        min-height: 42px;
+        padding: 10px 12px;
+        font-size: 0.72rem;
+    }
+
+    .menu {
+        gap: 18px;
+        justify-content: flex-start;
+        padding: 10px 2px 8px;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .menu a {
+        font-size: 0.82rem;
+        padding: 5px 0;
+    }
+
+    /* Portada: texto claro y video a todo el ancho */
+    .contenido-portada {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .texto-portada {
+        padding: 42px 0 30px;
+    }
+
+    .texto-portada h1 {
+        font-size: clamp(2.8rem, 11vw, 4.1rem);
+        overflow-wrap: break-word;
+    }
+
+    .descripcion-portada {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .destacados {
+        gap: 16px 20px;
+    }
+
+    .acciones-portada {
+        gap: 12px;
+    }
+
+    .acciones-portada .boton {
+        min-height: 48px;
+        padding: 14px 18px;
+    }
+
+    .imagen-portada {
+        height: clamp(240px, 68vw, 360px);
+        margin-left: -4.35vw;
+        margin-right: -4.35vw;
+    }
+
+    /* Servicios: tarjetas legibles sin desbordarse */
+    .encabezado-seccion {
+        margin-bottom: 24px;
+    }
+
+    .encabezado-seccion h2,
+    .texto-nosotros h2,
+    .contacto h2 {
+        font-size: clamp(1.9rem, 7vw, 2.35rem);
+    }
+
+    .rejilla-servicios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .tarjeta-servicio {
+        min-width: 0;
+        border-radius: 10px;
+    }
+
+    .tarjeta-servicio > img {
+        height: clamp(105px, 32vw, 155px);
+    }
+
+    .contenido-tarjeta {
+        padding: 15px 12px;
+    }
+
+    .contenido-tarjeta h3 {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .contenido-tarjeta p {
+        font-size: 0.78rem;
+        overflow-wrap: anywhere;
+    }
+
+    /* Sobre CISEM */
+    .contenido-nosotros {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+    }
+
+    .imagen-nosotros {
+        height: clamp(230px, 65vw, 330px);
+    }
+
+    .texto-nosotros > p:not(.etiqueta) {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    /* Contacto y formulario */
+    .contenido-contacto {
+        gap: 24px;
+    }
+
+    .rejilla-contacto {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .informacion-contacto {
+        padding: 0;
+    }
+
+    .formulario-presupuesto {
+        width: 100%;
+        padding: 23px 17px;
+        border-radius: 12px;
+    }
+
+    .grupo-campos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        min-height: 46px;
+        font-size: 16px; /* evita el zoom automático en iPhone */
+    }
+
+    .campo textarea {
+        min-height: 115px;
+    }
+
+    .boton-enviar {
+        min-height: 48px;
+        font-size: 0.95rem;
+    }
+
+    /* Pie de página */
+    .contenido-pie {
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .contenido-pie > p {
+        line-height: 1.7;
+    }
+
+    /* WhatsApp: botón compacto y siempre accesible */
+    .whatsapp-flotante {
+        right: 14px;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        min-height: 48px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .whatsapp-icono {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 390px) {
+    .contenedor {
+        width: 91%;
+    }
+
+    .logo {
+        font-size: 1.7rem;
+    }
+
+    .boton-nav {
+        padding: 9px 10px;
+        font-size: 0.68rem;
+    }
+
+    .rejilla-servicios {
+        gap: 9px;
+    }
+
+    .contenido-tarjeta {
+        padding: 13px 10px;
+    }
+
+    .contenido-tarjeta h3 {
+        font-size: 0.84rem;
+    }
+
+    .contenido-tarjeta p {
+        font-size: 0.74rem;
+    }
+}
+
+
+
+/* =========================================
+   SECCIÓN PROYECTOS: PASOS DE TRABAJO
+========================================= */
+.proyectos {
+    background: #e5e5e5;
+}
+
+.rejilla-proyectos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tarjeta-proceso {
+    background: #ffffff;
+    border: 1px solid #dedede;
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-proceso:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.numero-proceso {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background: #fff0e6;
+    color: var(--naranja);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.tarjeta-proceso h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.tarjeta-proceso p {
+    color: var(--gris);
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+.cta-proyectos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 28px;
+    padding: 22px 24px;
+    border-left: 4px solid var(--naranja);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.cta-proyectos p {
+    font-weight: 700;
+}
+
+@media (max-width: 760px) {
+    .rejilla-proyectos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .tarjeta-proceso {
+        padding: 22px 19px;
+    }
+
+    .cta-proyectos {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .cta-proyectos .boton {
+        width: 100%;
+        min-height: 48px;
+    }
+}
+
+
+
+/* =========================================
+   GALERÍA DE OBRAS - FOTOS Y VIDEOS
+========================================= */
+.galeria {
+    background: #e5e5e5;
+}
+
+.rejilla-galeria {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.elemento-galeria {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #d7d7d7;
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.enlace-foto,
+.marco-video {
+    position: relative;
+    display: block;
+    height: 320px;
+    overflow: hidden;
+    background: #151515;
+}
+
+.enlace-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.enlace-foto:hover img {
+    transform: scale(1.035);
+}
+
+.insignia-galeria {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    z-index: 2;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--naranja);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.ampliar-galeria {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(21, 21, 21, 0.82);
+    color: #ffffff;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.marco-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #151515;
+}
+
+.elemento-galeria figcaption {
+    padding: 20px 22px 22px;
+}
+
+.elemento-galeria figcaption h3 {
+    margin-bottom: 7px;
+    font-size: 1.08rem;
+}
+
+.elemento-galeria figcaption p {
+    color: var(--gris);
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+.nota-galeria {
+    margin-top: 22px;
+    color: var(--gris);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .rejilla-galeria {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .enlace-foto,
+    .marco-video {
+        height: clamp(220px, 62vw, 340px);
+    }
+
+    .elemento-galeria figcaption {
+        padding: 17px;
+    }
+}
+/* ==========================================
+   CISEM - VIDEO PRINCIPAL DE LA GALERÍA
+   ========================================== */
+
+.video-destacado {
+    margin-bottom: 35px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d7d7d7;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.marco-video-destacado {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #111111;
+}
+
+.marco-video-destacado video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #111111;
+}
+
+.texto-video-destacado {
+    padding: 28px 32px 32px;
+}
+
+.texto-video-destacado .etiqueta {
+    margin-bottom: 10px;
+}
+
+.texto-video-destacado h3 {
+    margin-bottom: 10px;
+    color: #151515;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+}
+
+.texto-video-destacado > p:last-child {
+    max-width: 750px;
+    color: #626262;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 760px) {
+
+    .video-destacado {
+        margin-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .marco-video-destacado video {
+        aspect-ratio: 16 / 9;
+        max-height: none;
+    }
+
+    .texto-video-destacado {
+        padding: 22px 18px;
+    }
+
+}
+/* ==========================================
+   CISEM - MEJORAS DE EXPERIENCIA MÓVIL
+   ========================================== */
+
+
+/* 1. EVITAR DESBORDAMIENTOS HORIZONTALES */
+
+html {
+    width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    width: 100%;
+    overflow-x: clip;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+
+/* 2. MEJOR NAVEGACIÓN EN CELULARES */
+
+@media (max-width: 760px) {
+
+    .encabezado {
+        width: 100%;
+    }
+
+    .navegacion {
+        gap: 10px;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: flex-start;
+        gap: 22px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 12px 2px;
+    }
+
+    .menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu a {
+        flex-shrink: 0;
+        padding: 7px 0;
+        font-size: 0.82rem;
+    }
+
+    /* Evitar que el contenido quede oculto bajo el menú */
+
+    section[id] {
+        scroll-margin-top: 125px;
+    }
+
+
+    /* 3. BOTONES MÁS CÓMODOS PARA TOCAR */
+
+    .boton {
+        min-height: 48px;
+        padding: 13px 18px;
+        font-size: 0.9rem;
+    }
+
+    .boton-nav {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* 4. FORMULARIO ADAPTADO AL CELULAR */
+
+    .rejilla-contacto {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .formulario-presupuesto {
+        width: 100%;
+        min-width: 0;
+        padding: 24px 18px;
+        border-radius: 12px;
+    }
+
+    /* Nombre y teléfono uno debajo del otro */
+
+    .grupo-campos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .campo {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .campo textarea {
+        min-height: 130px;
+    }
+
+    .boton-enviar {
+        min-height: 52px;
+        white-space: normal;
+        line-height: 1.5;
+    }
+
+
+    /* 5. SERVICIOS MÁS CÓMODOS DE LEER */
+
+    .rejilla-servicios {
+        gap: 14px;
+    }
+
+    .tarjeta-servicio {
+        height: 100%;
+    }
+
+    .contenido-tarjeta {
+        padding: 16px 13px;
+    }
+
+    .contenido-tarjeta h3 {
+        line-height: 1.35;
+    }
+
+    .contenido-tarjeta p {
+        line-height: 1.65;
+    }
+
+
+    /* 6. GALERÍA ADAPTADA A PANTALLAS PEQUEÑAS */
+
+    .rejilla-galeria {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .elemento-galeria {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .marco-video,
+    .enlace-foto {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .marco-video video,
+    .enlace-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .marco-video-destacado video {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .texto-video-destacado {
+        padding: 22px 18px;
+    }
+
+
+    /* 7. MEJOR ESPACIADO ENTRE SECCIONES */
+
+    .seccion {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .encabezado-seccion {
+        margin-bottom: 25px;
+    }
+
+    .encabezado-seccion h2,
+    .texto-nosotros h2,
+    .encabezado-contacto h2 {
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        line-height: 1.2;
+    }
+
+
+    /* 8. IMAGEN DE PORTADA */
+
+    .imagen-portada {
+        width: auto;
+        max-width: none;
+        height: clamp(230px, 65vw, 340px);
+    }
+
+    .imagen-portada video,
+    .imagen-portada img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    /* 9. IMAGEN DE LA SECCIÓN NOSOTROS */
+
+    .imagen-nosotros {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .imagen-nosotros img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    /* 10. PIE DE PÁGINA */
+
+    .contenido-pie {
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .contenido-pie > p {
+        line-height: 1.7;
+    }
+
+}
+
+
+/* ==========================================
+   AJUSTES PARA CELULARES MUY PEQUEÑOS
+   ========================================== */
+
+@media (max-width: 380px) {
+
+    .contenedor {
+        width: 92%;
+    }
+
+    .boton-nav {
+        max-width: 190px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .rejilla-servicios {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tarjeta-servicio > img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .formulario-presupuesto {
+        padding: 20px 14px;
+    }
+
+    .texto-portada h1 {
+        font-size: 2.7rem;
+    }
+
+}
